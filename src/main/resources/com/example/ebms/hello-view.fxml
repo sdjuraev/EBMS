@@ -12,7 +12,7 @@
     <Label fx:id="welcomeText" />
     <Button layoutX="40.0" layoutY="404.0" onAction="#onHelloButtonClick" prefWidth="120" text="Add User" />
     <Button layoutX="374.0" layoutY="404.0" prefWidth="120" text="Add Usage History" />
-    <Button layoutX="197.0" layoutY="404.0" prefWidth="120" text="Add balance" />
+    <Button layoutX="197.0" layoutY="404.0" prefWidth="120" text="Add balance" onAction="#addBalance" />
    <Button layoutX="538.0" layoutY="404.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Update" onAction="#onUpdate" />
    <TableView fx:id="tableView" layoutX="40.0" layoutY="40.0" prefHeight="300.0" prefWidth="685.0">
 

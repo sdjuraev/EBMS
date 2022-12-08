@@ -30,46 +30,55 @@ public class HelloController {
 
     @FXML
     protected void onHelloButtonClick() throws IOException {
-
-        Stage stage=new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("customer-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Customer Form");
-        stage.setScene(scene);
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.show();
+        showStages("customer-view.fxml","Customer Form");
     }
     @FXML
     protected void onUpdate() throws SQLException {
         DatabaseConnection db=new DatabaseConnection();
         ObservableList<ObservableList> data = FXCollections.observableArrayList();
-        ResultSet resultSet=db.showData("SELECT customerID, first, last, middle, balance   FROM customer");
+        ResultSet resultSet=db.getData("SELECT customerID, first, last, middle, balance   FROM customer");
         tableView.getColumns().clear();
-        for (int i= 0; i<resultSet.getMetaData().getColumnCount();i++){
-            final int j=i;
+        if (resultSet!=null) {
+            for (int i = 0; i < resultSet.getMetaData().getColumnCount(); i++) {
+                final int j = i;
 
-            TableColumn col = new TableColumn(resultSet.getMetaData().getColumnName(i + 1));
-            col.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue>() {
-                @Override
-                public ObservableValue call(TableColumn.CellDataFeatures<ObservableList, String> param) {
-                    return new SimpleStringProperty(param.getValue().get(j).toString());
-                }
-            });
+                TableColumn col = new TableColumn(resultSet.getMetaData().getColumnName(i + 1));
+                col.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue>() {
+                    @Override
+                    public ObservableValue call(TableColumn.CellDataFeatures<ObservableList, String> param) {
+                        return new SimpleStringProperty(param.getValue().get(j).toString());
+                    }
+                });
 
-            tableView.getColumns().addAll(col);
+                tableView.getColumns().addAll(col);
 
-        }
-        while (resultSet.next()){
-            //Iterate Row
-            ObservableList<String> row = FXCollections.observableArrayList();
-            for (int i = 1; i <= resultSet.getMetaData().getColumnCount(); i++) {
-                row.add(resultSet.getString(i));
             }
+            while (resultSet.next()) {
+                //Iterate Row
+                ObservableList<String> row = FXCollections.observableArrayList();
+                for (int i = 1; i <= resultSet.getMetaData().getColumnCount(); i++) {
+                    row.add(resultSet.getString(i));
+                }
 
-            data.add(row);
+                data.add(row);
+            }
+            tableView.setItems(data);
         }
-        tableView.setItems(data);
 
+    }
+    @FXML
+    private void addBalance() throws IOException {
+        showStages("payment-view.fxml", "Add Balance Form");
+    }
+
+    private void showStages(String fxmlName, String stageTitle) throws IOException {
+        Stage stage=new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxmlName));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle(stageTitle);
+        stage.setScene(scene);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
     }
 
 

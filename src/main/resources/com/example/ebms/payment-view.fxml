@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.ebms.PaymentView"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ebms.PaymentView">
+    <TextField fx:id="searchText" layoutX="25" layoutY="60" prefWidth="200" promptText="Enter customer ID " />
+    <TextField fx:id="balance" layoutX="25" layoutY="250" prefWidth="200" promptText="Enter Balance " />
+    <Label fx:id="userName" layoutX="25" layoutY="110" text="User name"></Label>
+    <Label fx:id="currentBalance" layoutX="25" layoutY="140" text="Current balance"></Label>
+    <Button fx:id="searchUser" layoutX="130" layoutY="200" text="Search" prefWidth="100" onAction="#SearchUser"/>
+    <Button fx:id="addBalance" layoutX="130" layoutY="350" text="Add Balance" prefWidth="100" onAction="#addBalance"/>
 </AnchorPane>
