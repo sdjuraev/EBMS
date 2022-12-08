@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ebms.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label fx:id="welcomeText" />
+    <Button layoutX="40.0" layoutY="404.0" onAction="#onHelloButtonClick" prefWidth="120" text="Add User" />
+    <Button layoutX="374.0" layoutY="404.0" prefWidth="120" text="Add Usage History" />
+    <Button layoutX="197.0" layoutY="404.0" prefWidth="120" text="Add balance" />
+   <Button layoutX="538.0" layoutY="404.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Update" onAction="#onUpdate" />
+   <TableView fx:id="tableView" layoutX="40.0" layoutY="40.0" prefHeight="300.0" prefWidth="685.0">
+
+   </TableView>
+</AnchorPane>

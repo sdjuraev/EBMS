@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ebms.CustomerView">
+   <children>
+      <Button layoutX="50.0" layoutY="450.0" mnemonicParsing="false" onAction="#addUserdatebase" prefHeight="25.0" prefWidth="150.0" text="Add User" />
+      <Button layoutX="250.0" layoutY="450.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Cancel" />
+      <Label fx:id="currentDate" layoutX="40.0" layoutY="50.0" text="Customer ID" />
+      <Label layoutX="40.0" layoutY="100.0" text="First Name" />
+      <Label layoutX="40.0" layoutY="150.0" text="Middle Name" />
+      <Label layoutX="40.0" layoutY="200.0" text="Last Name" />
+      <Label layoutX="40.0" layoutY="250.0" text="Address" />
+      <Label layoutX="40.0" layoutY="300.0" text="Date " />
+      <Label layoutX="40.0" layoutY="350.0" text="Cadastre" />
+      <Label layoutX="40.0" layoutY="400.0" text="Phone number" />
+
+      <TextField fx:id="customerID" layoutX="150.0" layoutY="50.0" onMouseClicked="#autoLoadCustomerID" />
+      <TextField fx:id="name" layoutX="150.0" layoutY="100.0" />
+      <TextField fx:id="middle" layoutX="150.0" layoutY="150.0" />
+      <TextField fx:id="last" layoutX="150.0" layoutY="200.0" />
+      <TextField fx:id="address" layoutX="150.0" layoutY="250.0" />
+      <TextField fx:id="cadastre" layoutX="150.0" layoutY="350.0" text="2133123123" />
+      <TextField fx:id="phone" layoutX="150.0" layoutY="400.0" />
+      <DatePicker fx:id="datePicker" layoutX="150.0" layoutY="300.0" />
+      <Label fx:id="tempo" layoutX="14.0" layoutY="14.0" text="Label" />
+
+
+   </children>
+</AnchorPane>
